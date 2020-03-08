@@ -1,0 +1,13 @@
+name: logcr
+version: 0.1.0
+
+authors:
+  - OisinA
+
+targets:
+  logcr:
+    main: src/logcr.cr
+
+crystal: 0.33.0
+
+license: MIT
