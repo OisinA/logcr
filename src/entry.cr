@@ -18,10 +18,17 @@ module LogCR
         end
 
         def log(level : LogLevel, info : String)
-            puts "[#{Time.local.to_s}] [#{level}] {#{@config.nil? ? "" : @config.not_nil!.prefix}} " + info
-            @fields.each_key do |f|
-                puts "\t#{f}=#{@fields[f]}"
+            if level.value < @config.loglevel.value
+                return
             end
+
+            s = "[#{Time.local.to_s}] [#{level}] {#{@config.nil? ? "" : @config.not_nil!.prefix}} #{info}\n"
+            @fields.each_key do |f|
+                s += "\t#{f}=#{@fields[f]}\n"
+            end
+
+            puts s
+            s
         end
 
         def append(fields : Fields)
