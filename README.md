@@ -2,6 +2,13 @@
 
 A simple structured logging library for Crystal. I hope to add JSON support in the future.
 
+## Usage
+
+```crystal
+LogCR.initialise LogCR::Config.new("test", LogCR::LogLevel::INFO)
+LogCR.with_fields(LogCR::Field{"test"=>"success"}).info("test")
+```
+
 ## Contributing
 
 1. Fork it (<https://github.com/OisinA/logcr/fork>)
