@@ -1,5 +1,7 @@
 # LogCR
 
+![Release](https://img.shields.io/github/v/release/oisina/logcr) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<https://oisina.github.io/logcr/>)
+
 A simple structured logging library for Crystal. Supports either readable output or JSON.
 
 ## Usage
