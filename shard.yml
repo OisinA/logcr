@@ -1,13 +1,11 @@
 name: logcr
-version: 0.1.0
+version: 0.1.1
+description: |
+  A simple structured logging library for Crystal. Supports either readable output or JSON.
 
 authors:
   - OisinA
 
-targets:
-  logcr:
-    main: src/logcr.cr
-
-crystal: 0.33.0
+crystal: 0.34.0
 
 license: MIT

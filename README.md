@@ -1,12 +1,36 @@
-# logcr
+# LogCR
 
-A simple structured logging library for Crystal. I hope to add JSON support in the future.
+A simple structured logging library for Crystal. Supports either readable output or JSON.
 
 ## Usage
 
 ```crystal
-LogCR.initialise LogCR::Config.new("test", LogCR::LogLevel::INFO)
-LogCR.with_fields(LogCR::Field{"test"=>"success"}).info("test")
+logger = LogCR::Logger.new("test", :info, :simple)
+logger.with_fields({"key"=>"value"}).info("out")
+```
+
+```
+2020-08-10 22:33:19 +01:00 [test] [INFO] out
+        key => value
+```
+
+### Different Log Levels
+
+```crystal
+LogCR::Logger.new("test", :debug, :simple)
+LogCR::Logger.new("test", :info, :simple)
+LogCR::Logger.new("test", :warn, :simple)
+LogCR::Logger.new("test", :error, :simple)
+```
+
+### JSON Output
+```crystal
+logger = LogCR::Logger.new("test", :info, :json)
+logger.with_fields({"key"=>"value"}).info("out")
+```
+
+```
+{"msg":"out","_level":"info","_line":"7","_file":"/home/Projects/logcr/spec/logcr_spec.cr","key":"value"}
 ```
 
 ## Contributing
